@@ -355,7 +355,7 @@ export const utils = {
     },
     getTrackedTokens(tokenByAddress: TokenByAddress): Token[] {
         const allTokens = _.values(tokenByAddress);
-        const trackedTokens = _.filter(allTokens, t => t.isTracked);
+        const trackedTokens = _.filter(allTokens, t => this.isTokenTracked(t));
         return trackedTokens;
     },
     getFormattedAmountFromToken(token: Token, tokenState: TokenState): string {
@@ -372,5 +372,8 @@ export const utils = {
     },
     isMobile(screenWidth: ScreenWidths): boolean {
         return screenWidth === ScreenWidths.Sm;
+    },
+    isTokenTracked(token: Token): boolean {
+        return !_.isUndefined(token.trackedTimestamp);
     },
 };
