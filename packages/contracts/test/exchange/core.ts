@@ -7,14 +7,14 @@ import * as chai from 'chai';
 import { LogWithDecodedArgs } from 'ethereum-types';
 import ethUtil = require('ethereumjs-util');
 
-import { DummyERC20TokenContract } from '../../src/generated_contract_wrappers/dummy_e_r_c20_token';
-import { DummyERC721TokenContract } from '../../src/generated_contract_wrappers/dummy_e_r_c721_token';
-import { ERC20ProxyContract } from '../../src/generated_contract_wrappers/e_r_c20_proxy';
-import { ERC721ProxyContract } from '../../src/generated_contract_wrappers/e_r_c721_proxy';
+import { DummyERC20TokenContract } from '../../src/generated_contract_wrappers/dummy_erc20_token';
+import { DummyERC721TokenContract } from '../../src/generated_contract_wrappers/dummy_erc721_token';
+import { ERC20ProxyContract } from '../../src/generated_contract_wrappers/erc20_proxy';
+import { ERC721ProxyContract } from '../../src/generated_contract_wrappers/erc721_proxy';
 import {
-    CancelContractEventArgs,
+    ExchangeCancelEventArgs,
     ExchangeContract,
-    FillContractEventArgs,
+    ExchangeFillEventArgs,
 } from '../../src/generated_contract_wrappers/exchange';
 import { artifacts } from '../../src/utils/artifacts';
 import { expectRevertReasonOrAlwaysFailingTransactionAsync } from '../../src/utils/assertions';
@@ -351,7 +351,7 @@ describe('Exchange core', () => {
             const res = await exchangeWrapper.fillOrderAsync(signedOrder, takerAddress, {
                 takerAssetFillAmount: signedOrder.takerAssetAmount,
             });
-            const log = res.logs[0] as LogWithDecodedArgs<FillContractEventArgs>;
+            const log = res.logs[0] as LogWithDecodedArgs<ExchangeFillEventArgs>;
             expect(log.args.takerAssetFilledAmount).to.be.bignumber.equal(
                 signedOrder.takerAssetAmount.minus(takerAssetFillAmount),
             );
@@ -389,7 +389,7 @@ describe('Exchange core', () => {
             });
             expect(res.logs).to.have.length(1);
 
-            const log = res.logs[0] as LogWithDecodedArgs<FillContractEventArgs>;
+            const log = res.logs[0] as LogWithDecodedArgs<ExchangeFillEventArgs>;
             const logArgs = log.args;
             const expectedFilledMakerAssetAmount = signedOrder.makerAssetAmount.div(divisor);
             const expectedFilledTakerAssetAmount = signedOrder.takerAssetAmount.div(divisor);
@@ -588,7 +588,7 @@ describe('Exchange core', () => {
             const res = await exchangeWrapper.cancelOrderAsync(signedOrder, makerAddress);
             expect(res.logs).to.have.length(1);
 
-            const log = res.logs[0] as LogWithDecodedArgs<CancelContractEventArgs>;
+            const log = res.logs[0] as LogWithDecodedArgs<ExchangeCancelEventArgs>;
             const logArgs = log.args;
 
             expect(signedOrder.makerAddress).to.be.equal(logArgs.makerAddress);

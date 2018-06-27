@@ -4,9 +4,9 @@ import { AssetProxyId, RevertReason } from '@0xproject/types';
 import { BigNumber } from '@0xproject/utils';
 import * as chai from 'chai';
 
-import { DummyERC20TokenContract } from '../../src/generated_contract_wrappers/dummy_e_r_c20_token';
-import { ERC20ProxyContract } from '../../src/generated_contract_wrappers/e_r_c20_proxy';
-import { ERC721ProxyContract } from '../../src/generated_contract_wrappers/e_r_c721_proxy';
+import { DummyERC20TokenContract } from '../../src/generated_contract_wrappers/dummy_erc20_token';
+import { ERC20ProxyContract } from '../../src/generated_contract_wrappers/erc20_proxy';
+import { ERC721ProxyContract } from '../../src/generated_contract_wrappers/erc721_proxy';
 import { TestAssetProxyDispatcherContract } from '../../src/generated_contract_wrappers/test_asset_proxy_dispatcher';
 import { artifacts } from '../../src/utils/artifacts';
 import { expectRevertReasonOrAlwaysFailingTransactionAsync } from '../../src/utils/assertions';
