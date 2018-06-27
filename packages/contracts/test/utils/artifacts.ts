@@ -1,0 +1,49 @@
+import { ContractArtifact } from '@0xproject/sol-compiler';
+
+import * as AssetProxyOwner from '../../src/artifacts/AssetProxyOwner.json';
+import * as DummyERC20Token from '../../src/artifacts/DummyERC20Token.json';
+import * as DummyERC721Receiver from '../../src/artifacts/DummyERC721Receiver.json';
+import * as DummyERC721Token from '../../src/artifacts/DummyERC721Token.json';
+import * as ERC20Proxy from '../../src/artifacts/ERC20Proxy.json';
+import * as ERC721Proxy from '../../src/artifacts/ERC721Proxy.json';
+import * as Exchange from '../../src/artifacts/Exchange.json';
+import * as ExchangeWrapper from '../../src/artifacts/ExchangeWrapper.json';
+import * as MixinAuthorizable from '../../src/artifacts/MixinAuthorizable.json';
+import * as MultiSigWallet from '../../src/artifacts/MultiSigWallet.json';
+import * as MultiSigWalletWithTimeLock from '../../src/artifacts/MultiSigWalletWithTimeLock.json';
+import * as TestAssetProxyDispatcher from '../../src/artifacts/TestAssetProxyDispatcher.json';
+import * as TestAssetProxyOwner from '../../src/artifacts/TestAssetProxyOwner.json';
+import * as TestLibBytes from '../../src/artifacts/TestLibBytes.json';
+import * as TestLibs from '../../src/artifacts/TestLibs.json';
+import * as TestSignatureValidator from '../../src/artifacts/TestSignatureValidator.json';
+import * as TestValidator from '../../src/artifacts/TestValidator.json';
+import * as TestWallet from '../../src/artifacts/TestWallet.json';
+import * as TokenRegistry from '../../src/artifacts/TokenRegistry.json';
+import * as EtherToken from '../../src/artifacts/WETH9.json';
+import * as Whitelist from '../../src/artifacts/Whitelist.json';
+import * as ZRX from '../../src/artifacts/ZRXToken.json';
+
+export const artifacts = {
+    AssetProxyOwner: (AssetProxyOwner as any) as ContractArtifact,
+    DummyERC20Token: (DummyERC20Token as any) as ContractArtifact,
+    DummyERC721Receiver: (DummyERC721Receiver as any) as ContractArtifact,
+    DummyERC721Token: (DummyERC721Token as any) as ContractArtifact,
+    ERC20Proxy: (ERC20Proxy as any) as ContractArtifact,
+    ERC721Proxy: (ERC721Proxy as any) as ContractArtifact,
+    Exchange: (Exchange as any) as ContractArtifact,
+    ExchangeWrapper: (ExchangeWrapper as any) as ContractArtifact,
+    EtherToken: (EtherToken as any) as ContractArtifact,
+    MixinAuthorizable: (MixinAuthorizable as any) as ContractArtifact,
+    MultiSigWallet: (MultiSigWallet as any) as ContractArtifact,
+    MultiSigWalletWithTimeLock: (MultiSigWalletWithTimeLock as any) as ContractArtifact,
+    TestAssetProxyOwner: (TestAssetProxyOwner as any) as ContractArtifact,
+    TestAssetProxyDispatcher: (TestAssetProxyDispatcher as any) as ContractArtifact,
+    TestLibBytes: (TestLibBytes as any) as ContractArtifact,
+    TestLibs: (TestLibs as any) as ContractArtifact,
+    TestSignatureValidator: (TestSignatureValidator as any) as ContractArtifact,
+    TestValidator: (TestValidator as any) as ContractArtifact,
+    TestWallet: (TestWallet as any) as ContractArtifact,
+    TokenRegistry: (TokenRegistry as any) as ContractArtifact,
+    Whitelist: (Whitelist as any) as ContractArtifact,
+    ZRX: (ZRX as any) as ContractArtifact,
+};
